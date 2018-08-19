@@ -29,16 +29,25 @@ var collectionCopy = JSON.parse(JSON.stringify(collection));
 
 // Only change code below this line
 function updateRecords(id, prop, value) {
-if (collection.hasOwnProperty(id)){ 
-  if (collection[id].hasOwnProperty(prop) && value!=""){
-    collection[id][prop]=value;
+  if (collection.hasOwnProperty(id)) {
+    if (value != "") {
+      if (prop != "tracks") {
+        collection[id][prop]=value;
+      }
+      else if (collection[id].hasOwnProperty(prop)) {
+        collection[id][prop].push(value);
+      }
+      else {
+        collection[id][prop]=[];
+        collection[id][prop].push(value);
+      }
+    }
+    else {
+      delete collection[id][prop];
+    }
   }
   else {
-    collection[id][prop]=value;
+    return "album does not exist";
   }
-};
-return collection[id];
+  return collection;
 }
-
-// Alter values below to test your code
-updateRecords(5439, "artist", "ABBA");
