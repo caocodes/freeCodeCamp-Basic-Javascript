@@ -1,4 +1,3 @@
-//Setup
 var contacts = [
     {
         "firstName": "Akira",
@@ -28,10 +27,16 @@ var contacts = [
 
 
 function lookUpProfile(name, prop){
-// Only change code below this line
 
-// Only change code above this line
+for (var i = 0; i < contacts.length; i++) {
+    if (contacts[i].firstName == name){
+        if (contacts[i].hasOwnProperty(prop)) {
+          return contacts[i][prop];
+        }
+        else {
+          return "No such property";
+        }
+    }
 }
-
-// Change these values to test your function
-lookUpProfile("Akira", "likes");
+return "No such contact";
+}
