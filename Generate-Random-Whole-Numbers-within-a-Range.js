@@ -10,7 +10,7 @@ ourRandomRange(1, 9);
 
 function randomRange(myMin, myMax) {
 
-  return 0; // Change this line
+  Math.floor(Math.random() * (myMax - myMin + 1)) + myMin; // Change this line
 
 }
 
