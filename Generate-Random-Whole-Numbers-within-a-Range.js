@@ -10,7 +10,7 @@ ourRandomRange(1, 9);
 
 function randomRange(myMin, myMax) {
 
-  Math.floor(Math.random() * (myMax - myMin + 1)) + myMin; // Change this line
+  Math.floor(Math.random() * (myMax - myMin + 1)) + myMin; // If random number is minimum, fx return myMin, max fx return myMax; test with different case numbers
 
 }
 
